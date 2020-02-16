@@ -30,7 +30,10 @@ def _compile_rc(ctx, rc_exe, rc_file, extra_inputs):
         inputs = [rc_file] + extra_inputs,
         outputs = [out],
         executable = rc_exe,
-        arguments = ["/nologo", "/fo%s" % out.path, rc_file.path],
+        arguments = ["/nologo",
+                     "/I%s" % "C:/Program Files (x86)/Windows Kits/10/Include/10.0.17763.0/um",
+                     "/I%s" % "C:/Program Files (x86)/Windows Kits/10/Include/10.0.17763.0/shared",
+                     "/fo%s" % out.path, rc_file.path],
         mnemonic = "WindowsRc",
     )
     return out
